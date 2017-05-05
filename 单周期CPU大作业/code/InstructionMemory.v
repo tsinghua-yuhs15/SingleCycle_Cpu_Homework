@@ -5,6 +5,8 @@ module InstructionMemory(Address, Instruction);
 	
 	always @(*)
 		case (Address[9:2])
+
+		/*
 			// addi $a0, $zero, 12345 #(0x3039)
 			8'd0:    Instruction <= {6'h08, 5'd0 , 5'd4 , 16'h3039};
 			// addiu $a1, $zero, -11215 #(0xd431)
@@ -32,6 +34,26 @@ module InstructionMemory(Address, Instruction);
 			// j Loop
 			8'd11:   Instruction <= {6'h02, 26'd11};
 			
+		*/
+
+			8'd09:	Instruction <= 32'h20040003;
+			8'd10:	Instruction <= 32'h0c10000c;
+			8'd11:	Instruction <= 32'h1000ffff;
+			8'd12:	Instruction <= 32'h23bdfff8;
+			8'd13:	Instruction <= 32'hafbf0004;
+			8'd14:	Instruction <= 32'hafa40000;
+			8'd15:	Instruction <= 32'h28880001;
+			8'd16:	Instruction <= 32'h11000003;
+			8'd17:	Instruction <= 32'h00001026;
+			8'd18:	Instruction <= 32'h23bd0008;
+			8'd19:	Instruction <= 32'h03e00008;
+			8'd20:	Instruction <= 32'h2084ffff;
+			8'd21:	Instruction <= 32'h0c10000c;
+			8'd22:	Instruction <= 32'h8fa40000;
+			8'd23:	Instruction <= 32'h8fbf0004;
+			8'd24:	Instruction <= 32'h23bd0008;
+			8'd25:	Instruction <= 32'h00821020;
+			8'd26:	Instruction <= 32'h03e00008;
 			default: Instruction <= 32'h00000000;
 		endcase
 		
