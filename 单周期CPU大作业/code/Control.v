@@ -39,14 +39,15 @@ module Control(OpCode, Funct,
 	1;
 
 	assign RegDst[1:0] = 
+	(OpCode == 6'h23)? 2'b00:
 	(OpCode == 6'h03)? 2'b10:
-	(OpCode == 6'h0f)? 2'b01:
-	(OpCode == 6'h08)? 2'b01:
-	(OpCode == 6'h09)? 2'b01:
-	(OpCode == 6'h0c)? 2'b01:
-	(OpCode == 6'h0a)? 2'b01:
-	(OpCode == 6'h0b)? 2'b01:
-	2'b00;
+	(OpCode == 6'h0f)? 2'b00:
+	(OpCode == 6'h08)? 2'b00:
+	(OpCode == 6'h09)? 2'b00:
+	(OpCode == 6'h0c)? 2'b00:
+	(OpCode == 6'h0a)? 2'b00:
+	(OpCode == 6'h0b)? 2'b00:
+	2'b01;
 
 	assign MemRead = 
 	(OpCode == 6'h23)? 1:
@@ -80,7 +81,7 @@ module Control(OpCode, Funct,
 	0;
 
 	assign ExtOp = 
-	(OpCode == 6'h09)? 0:
+	(OpCode == 6'h0c)? 0:
 	(OpCode == 6'h0b)? 0:
 	1;
 
